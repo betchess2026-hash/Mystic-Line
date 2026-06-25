@@ -5,235 +5,40 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Mystic Line - Online Astrologija & Tarot Chat</title>
     <style>
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background-color: #0b0612;
-            color: #e2daeb;
-            margin: 0;
-            padding: 0;
-        }
-        header {
-            background: linear-gradient(135deg, #1b0f31, #0b0612);
-            padding: 60px 20px;
-            text-align: center;
-            border-bottom: 3px solid #b388ff;
-        }
-        h1 {
-            color: #d1b3ff;
-            font-size: 3em;
-            margin: 0 0 10px 0;
-            letter-spacing: 2px;
-            text-shadow: 0 0 15px rgba(179, 136, 255, 0.4);
-        }
-        p.subtitle {
-            font-size: 1.2em;
-            color: #b388ff;
-            margin: 0;
-        }
-        .container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 20px;
-        }
-        .section-title {
-            text-align: center;
-            color: #d1b3ff;
-            font-size: 2em;
-            margin-top: 40px;
-            margin-bottom: 10px;
-        }
-        .section-subtitle {
-            text-align: center;
-            color: #a291b8;
-            margin-bottom: 40px;
-        }
-        /* Stilovi za kategorije */
-        .categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-            gap: 15px;
-            margin-bottom: 50px;
-        }
-        .category-box {
-            background: linear-gradient(135deg, #1c0f3a, #13092b);
-            padding: 20px;
-            border-radius: 12px;
-            border: 1px solid #512da8;
-            text-align: center;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.4);
-        }
-        .category-box .icon {
-            font-size: 2em;
-            margin-bottom: 8px;
-            display: block;
-        }
-        .category-box span {
-            font-weight: bold;
-            color: #d1b3ff;
-            font-size: 1.05em;
-        }
-        .services {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 25px;
-        }
-        .card {
-            background-color: #160d29;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #3c1e6d;
-            box-shadow: 0 8px 25px rgba(0,0,0,0.6);
-            text-align: center;
-            transition: 0.3s;
-            position: relative;
-        }
-        .card:hover {
-            transform: translateY(-5px);
-            border-color: #b388ff;
-        }
-        .card.popular {
-            border: 2px solid #ffb703;
-        }
-        .badge {
-            position: absolute;
-            top: -12px;
-            left: 50%;
-            transform: translateX(-50%);
-            background-color: #ffb703;
-            color: #0b0612;
-            padding: 4px 12px;
-            font-weight: bold;
-            border-radius: 20px;
-            font-size: 0.8em;
-            text-transform: uppercase;
-        }
-        .card h3 {
-            color: #d1b3ff;
-            margin-top: 10px;
-            font-size: 1.4em;
-        }
-        .msg-count {
-            font-size: 2.2em;
-            color: #ffffff;
-            font-weight: bold;
-            margin: 15px 0 5px 0;
-        }
-        .price {
-            font-size: 1.3em;
-            color: #ffb703;
-            font-weight: bold;
-            margin-bottom: 15px;
-        }
-        .payment-methods {
-            background-color: #110822;
-            padding: 25px;
-            border-radius: 10px;
-            border: 1px dashed #512da8;
-            margin-top: 45px;
-            text-align: center;
-        }
-        .abon-logo {
-            color: #ff0055;
-            font-weight: bold;
-            font-size: 1.2em;
-            letter-spacing: 1px;
-        }
-        .highlight {
-            color: #ffb703;
-            font-weight: bold;
-        }
-        .rules-section {
-            background-color: #110822;
-            padding: 30px;
-            border-radius: 15px;
-            border: 1px solid #3c1e6d;
-            margin-top: 50px;
-            text-align: left;
-        }
-        .rules-section h3 {
-            color: #d1b3ff;
-            text-align: center;
-            margin-top: 0;
-            margin-bottom: 20px;
-            font-size: 1.6em;
-        }
-        .rules-list {
-            padding-left: 20px;
-            margin: 0;
-        }
-        .rules-list li {
-            margin-bottom: 12px;
-            line-height: 1.6;
-            color: #c77dff;
-        }
-        .rules-list strong {
-            color: #e2daeb;
-        }
-        .chat-widget {
-            position: fixed;
-            bottom: 25px;
-            right: 25px;
-            width: 320px;
-            background-color: #1c0f3a;
-            border: 2px solid #b388ff;
-            border-radius: 15px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.8);
-            overflow: hidden;
-            font-size: 0.95em;
-            z-index: 1000;
-        }
-        .chat-header {
-            background: linear-gradient(135deg, #512da8, #1c0f3a);
-            color: white;
-            padding: 15px;
-            font-weight: bold;
-            display: flex;
-            align-items: center;
-            gap: 10px;
-            border-bottom: 1px solid #3c1e6d;
-        }
-        .chat-header .status-dot {
-            width: 10px;
-            height: 10px;
-            background-color: #00e676;
-            border-radius: 50%;
-            display: inline-block;
-            box-shadow: 0 0 8px #00e676;
-        }
-        .chat-body {
-            padding: 15px;
-            background-color: #0f0822;
-        }
-        .chat-body p {
-            margin: 0 0 12px 0;
-            color: #b388ff;
-            font-size: 0.9em;
-        }
-        .chat-send-btn {
-            display: block;
-            background-color: #7d52a0;
-            color: white;
-            padding: 15px;
-            border-radius: 8px;
-            font-weight: bold;
-            cursor: pointer;
-            margin-top: 10px;
-            text-align: center;
-            text-decoration: none;
-            transition: 0.3s;
-        }
-        .chat-send-btn:hover {
-            background-color: #653d86;
-            box-shadow: 0 0 10px rgba(125, 82, 160, 0.5);
-        }
-        footer {
-            text-align: center;
-            padding: 30px;
-            background-color: #05020a;
-            color: #512da8;
-            font-size: 0.9em;
-            margin-top: 60px;
-        }
+        body { font-family: 'Segoe UI', sans-serif; background-color: #0b0612; color: #e2daeb; margin: 0; padding: 0; }
+        header { background: linear-gradient(135deg, #1b0f31, #0b0612); padding: 50px 20px; text-align: center; border-bottom: 3px solid #b388ff; }
+        h1 { color: #d1b3ff; font-size: 2.8em; margin: 0 0 10px 0; text-shadow: 0 0 15px rgba(179, 136, 255, 0.4); }
+        p.subtitle { font-size: 1.1em; color: #b388ff; margin: 0; }
+        .container { max-width: 900px; margin: 30px auto; padding: 0 20px; }
+        .section-title { text-align: center; color: #d1b3ff; font-size: 1.8em; margin-top: 30px; margin-bottom: 10px; }
+        .section-subtitle { text-align: center; color: #a291b8; margin-bottom: 30px; font-size: 0.95em; }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(140px, 1fr)); gap: 12px; margin-bottom: 40px; }
+        .category-box { background: #1c0f3a; padding: 15px; border-radius: 10px; border: 1px solid #512da8; text-align: center; }
+        .category-box .icon { font-size: 1.8em; margin-bottom: 5px; display: block; }
+        .category-box span { font-weight: bold; color: #d1b3ff; font-size: 0.95em; }
+        .services { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; }
+        .card { background-color: #160d29; padding: 20px; border-radius: 12px; border: 1px solid #3c1e6d; text-align: center; position: relative; }
+        .card.popular { border: 2px solid #ffb703; }
+        .badge { position: absolute; top: -10px; left: 50%; transform: translateX(-50%); background-color: #ffb703; color: #0b0612; padding: 3px 10px; font-weight: bold; border-radius: 15px; font-size: 0.75em; text-transform: uppercase; }
+        .card h3 { color: #d1b3ff; margin-top: 5px; font-size: 1.2em; }
+        .msg-count { font-size: 1.8em; color: #ffffff; font-weight: bold; margin: 10px 0 5px 0; }
+        .price { font-size: 1.2em; color: #ffb703; font-weight: bold; margin-bottom: 10px; }
+        .card p { font-size: 0.85em; margin: 0; color: #a291b8; }
+        .payment-methods { background-color: #110822; padding: 20px; border-radius: 10px; border: 1px dashed #512da8; margin-top: 35px; text-align: center; font-size: 0.95em; }
+        .abon-logo { color: #ff0055; font-weight: bold; }
+        .highlight { color: #ffb703; font-weight: bold; }
+        .rules-section { background-color: #110822; padding: 20px; border-radius: 12px; border: 1px solid #3c1e6d; margin-top: 40px; text-align: left; font-size: 0.9em; }
+        .rules-section h3 { color: #d1b3ff; text-align: center; margin-top: 0; margin-bottom: 15px; }
+        .rules-list { padding-left: 15px; margin: 0; }
+        .rules-list li { margin-bottom: 10px; line-height: 1.5; color: #c77dff; }
+        .rules-list strong { color: #e2daeb; }
+        .chat-widget { position: fixed; bottom: 20px; right: 20px; width: 290px; background-color: #1c0f3a; border: 2px solid #b388ff; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.8); overflow: hidden; font-size: 0.9em; z-index: 1000; }
+        .chat-header { background: #512da8; color: white; padding: 12px; font-weight: bold; display: flex; align-items: center; gap: 8px; }
+        .status-dot { width: 8px; height: 8px; background-color: #00e676; border-radius: 50%; display: inline-block; box-shadow: 0 0 8px #00e676; }
+        .chat-body { padding: 12px; background-color: #0f0822; }
+        .chat-body p { margin: 0 0 10px 0; color: #b388ff; font-size: 0.85em; }
+        .chat-send-btn { display: block; background-color: #7d52a0; color: white; padding: 12px; border-radius: 6px; font-weight: bold; cursor: pointer; margin-top: 5px; text-align: center; text-decoration: none; }
+        footer { text-align: center; padding: 20px; background-color: #05020a; color: #512da8; font-size: 0.85em; margin-top: 40px; }
     </style>
 </head>
 <body>
@@ -245,48 +50,28 @@
 
     <div class="container">
         
-        <!-- NOVA SEKCIJA ZA KATEGORIJE I MOGUĆNOSTI CHATA -->
         <h2 class="section-title">Područja i tehnike savjetovanja</h2>
-        <p class="section-subtitle">Naš chat nudi duboke analize i odgovore kroz različite drevne i moderne metode:</p>
+        <p class="section-subtitle">Naut chat nudi duboke analize i odgovore kroz različite metode:</p>
         
         <div class="categories-grid">
-            <div class="category-box">
-                <span class="icon">🃏</span>
-                <span>Ciganski Tarot</span>
-            </div>
-            <div class="category-box">
-                <span class="icon">💤</span>
-                <span>Tumačenje Snova</span>
-            </div>
-            <div class="category-box">
-                <span class="icon">🔢</span>
-                <span>Numerologija</span>
-            </div>
-            <div class="category-box">
-                <span class="icon">ᚱ</span>
-                <span>Drevne Rune</span>
-            </div>
-            <div class="category-box">
-                <span class="icon">❤️</span>
-                <span>Ljubav & Odnosi</span>
-            </div>
-            <div class="category-box">
-                <span class="icon">💼</span>
-                <span>Financije & Posao</span>
-            </div>
+            <div class="category-box"><span class="icon">🃏</span><span>Ciganski Tarot</span></div>
+            <div class="category-box"><span class="icon">💤</span><span>Tumačenje Snova</span></div>
+            <div class="category-box"><span class="icon">🔢</span><span>Numerologija</span></div>
+            <div class="category-box"><span class="icon">ᚱ</span><span>Drevne Rune</span></div>
+            <div class="category-box"><span class="icon">❤️</span><span>Ljubav & Odnosi</span></div>
+            <div class="category-box"><span class="icon">💼</span><span>Financije & Posao</span></div>
         </div>
 
         <h2 class="section-title">Odaberite Paket Poruka</h2>
-        <p class="section-subtitle">Kupite A-bon na kiosku i iskoristite poruke kada god želite. Što veći paket odaberete, dobivate više gratis poruka!</p>
+        <p class="section-subtitle">Kupite A-bon i iskoristite poruke kada god želite. Što veći paket odaberete, dobivate više gratis poruka!</p>
         
         <div class="services">
             <div class="card">
                 <h3>🔮 Osnovni</h3>
                 <div class="msg-count">35 Poruka</div>
                 <div class="price">A-bon: 5.00 €</div>
-                <p>Kratka konzultacija i brzi odgovori na pitanja.</p>
+                <p>Kratka konzultacija i brzi odgovori na goruća pitanja.</p>
             </div>
-            
             <div class="card">
                 <div class="badge" style="background-color: #c77dff; color: white;">+10% Gratis</div>
                 <h3>✨ Standard</h3>
@@ -294,7 +79,6 @@
                 <div class="price">A-bon: 10.00 €</div>
                 <p>Detaljno otvaranje tarota za jednu životnu situaciju.</p>
             </div>
-
             <div class="card">
                 <div class="badge" style="background-color: #9d4edf; color: white;">+15% Gratis</div>
                 <h3>🌟 Napredni</h3>
@@ -302,16 +86,54 @@
                 <div class="price">A-bon: 20.00 €</div>
                 <p>Duboka astrološka analiza i više otvaranja karata.</p>
             </div>
-
             <div class="card popular">
                 <div class="badge">+20% Gratis</div>
                 <h3>💎 Premium</h3>
                 <div class="msg-count">210 Poruka</div>
                 <div class="price">A-bon: 25.00 €</div>
-                <p>Kompletno vodstvo i odgovori na sva goruća pitanja.</p>
+                <p>Kompletno vodstvo i odgovori na sva pitanja.</p>
             </div>
-
             <div class="card" style="border: 2px solid #00e676;">
-                <div class="badge" style="background-color: #00e676; color: black;">+25% VIP Gratis</div>
+                <div class="badge" style="background-color: #00e676; color: black;">+25% VIP</div>
                 <h3>👑 VIP Astro</h3>
                 <div class="msg-count">438 Poruka</div>
+                <div class="price">A-bon: 50.00 €</div>
+                <p>Maksimalna posvećenost, natalna karta i stalni chat.</p>
+            </div>
+        </div>
+
+        <div class="payment-methods">
+            <h3>Kako platiti? Jednostavno i anonimno!</h3>
+            <p>1. Kupite <span class="abon-logo">A-bon</span> na bilo kojem kiosku (Tisak, iNovine) ili benzinskoj postaji.</p>
+            <p>2. Kliknite na gumb u kutu ekrana kako biste se povezali s nama na Viberu.</p>
+            <p>3. Pošaljite nam podatke (ime, datum rođenja, pitanje) i <span class="highlight">16-znamenkasti kod s bona</span>.</p>
+        </div>
+
+        <div class="rules-section">
+            <h3>Pravilnik ponašanja i uvjeti chata</h3>
+            <ul class="rules-list">
+                <li><strong>Pisani oblik:</strong> Komunikacija se odvija strogo u pisanom obliku. Slanje glasovnih poruka, slika i videa je zabranjeno.</li>
+                <li><strong>Zabrana vulgarnosti:</strong> Strogo je zabranjeno slanje vulgarnog, uvredljivog ili seksualnog sadržaja.</li>
+                <li><strong>Blokiranje bez povrata:</strong> U slučaju kršenja pravila, korisnik se trajno blokira, a iznos paketa se ne vraća.</li>
+                <li><strong>Prva poruka:</strong> Inicijalna poruka s podacima i kodom A-bona računa se i oduzima od ukupnog broja poruka.</li>
+                <li><strong>Poruke upozorenja:</strong> Svaka poslana poruka upozorenja "nadoplatite svoj negativan saldo" oduzima se od stanja.</li>
+                <li><strong>Vremenska neograničenost:</strong> Kupljeni paket poruka je vremenski neograničen i može se iskoristiti bilo kada.</li>
+                <li><strong>Zabranjeno pozivanje:</strong> Svaki pokušaj izravnog audio ili video poziva rezultirat će trenutačnim blokiranjem.</li>
+                <li><strong>Punoljetnost:</strong> Usluge Astro Chata smiju koristiti isključivo osobe starije od 18 godina.</li>
+                <li><strong>Zdravlje i pravo:</strong> Konzultacije nisu zamjena za medicinske i pravne savjete. Ne odgovaramo na pitanja o bolestima.</li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="chat-widget">
+        <div class="chat-header"><span class="status-dot"></span><span>Mystic Line - Astro Chat</span></div>
+        <div class="chat-body">
+            <p>Klikom na gumb ispod otvara se naš službeni Viber chat gdje odmah možete poslati svoje pitanje i A-bon kod.</p>
+            <a href="viber://chat?number=385917861346&draft=Pozdrav%20Mystic%20Line!%20Zelim%20aktivirati%20Astro%20Chat." target="_blank" class="chat-send-btn">Započni Chat na Viberu</a>
+        </div>
+    </div>
+
+    <footer><p>&copy; 2026 Mystic Line. Sva prava pridržana.</p></footer>
+
+</body>
+</html>
