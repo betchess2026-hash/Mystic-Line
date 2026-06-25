@@ -210,30 +210,54 @@
 
     <div class="container">
         <h2 class="section-title">Odaberite Paket Poruka</h2>
-        <p class="section-subtitle">Kupite paket i iskoristite poruke kada god želite. Potpuna diskrecija zajamčena.</p>
+        <p class="section-subtitle">Kupite A-bon na kiosku i iskoristite poruke kada god želite. Što veći paket odaberete, dobivate više gratis poruka!</p>
        
         <div class="services">
             <div class="card">
-                <h3>🔮 Osnovni Paket</h3>
+                <h3>🔮 Osnovni</h3>
                 <div class="msg-count">35 Poruka</div>
-                <div class="price">Cijena: 5.00 €</div>
-                <p>Idealno za brza pitanja i konkretne odgovore.</p>
+                <div class="price">A-bon: 5.00 €</div>
+                <p>Kratka konzultacija i brzi odgovori na pitanja.</p>
             </div>
            
-            <div class="card popular">
-                <div class="badge">Najpopularnije (+10% Gratis)</div>
-                <h3>✨ Premium Paket</h3>
+            <div class="card">
+                <div class="badge" style="background-color: #c77dff; color: white;">+10% Gratis</div>
+                <h3>✨ Standard</h3>
                 <div class="msg-count">77 Poruka</div>
-                <div class="price">Cijena: 10.00 €</div>
-                <p>Detaljno otvaranje tarota i duboka analiza situacije.</p>
+                <div class="price">A-bon: 10.00 €</div>
+                <p>Detaljno otvaranje tarota za jednu životnu situaciju.</p>
+            </div>
+
+            <div class="card">
+                <div class="badge" style="background-color: #9d4edf; color: white;">+15% Gratis</div>
+                <h3>🌟 Napredni</h3>
+                <div class="msg-count">161 Poruka</div>
+                <div class="price">A-bon: 20.00 €</div>
+                <p>Duboka astrološka analiza i više otvaranja karata.</p>
+            </div>
+
+            <div class="card popular">
+                <div class="badge">+20% Gratis</div>
+                <h3>💎 Premium</h3>
+                <div class="msg-count">210 Poruka</div>
+                <div class="price">A-bon: 25.00 €</div>
+                <p>Kompletno vodstvo i odgovori na sva goruća pitanja.</p>
+            </div>
+
+            <div class="card" style="border: 2px solid #00e676;">
+                <div class="badge" style="background-color: #00e676; color: black;">+25% VIP Gratis</div>
+                <h3>👑 VIP Astro</h3>
+                <div class="msg-count">438 Poruka</div>
+                <div class="price">A-bon: 50.00 €</div>
+                <p>Maksimalna posvećenost klijentu, natalna karta i stalni chat.</p>
             </div>
         </div>
 
         <div class="payment-methods">
             <h3>Kako platiti? Jednostavno i anonimno!</h3>
-            <p>1. Kupite <span class="abon-logo">A-bon</span> na kiosku (Tisak, iNovine) ili benzinskoj postaji.</p>
-            <p>2. Unesite vaše pitanje u chat i pokrenite razgovor.</p>
-            <p>3. Pošaljite <span class="highlight">16-znamenkasti kod s bona</span> u WhatsApp poruci kako bismo aktivirali vaš paket poruka.</p>
+            <p>1. Kupite <span class="abon-logo">A-bon</span> u iznosu od željenog paketa na bilo kojem kiosku (Tisak, iNovine) ili benzinskoj postaji.</p>
+            <p>2. Unesite vaše podatke i pitanje u chat prozorčić dolje desno.</p>
+            <p>3. Pošaljite <span class="highlight">16-znamenkasti kod s bona</span> u poruci kako bismo aktivirali vaš paket poruka.</p>
             <p style="font-size: 0.85em; color: #8c76b2; margin-top: 15px;">*Podržavamo i uplate putem standardnog Aircash novčanika te KEKS Pay-a.</p>
         </div>
     </div>
@@ -245,7 +269,7 @@
         </div>
         <div class="chat-body">
             <p>Napišite svoje ime, datum rođenja, pitanje ili kod kupljenog A-bona.</p>
-            <textarea id="clientQuestion" placeholder="Npr. Ivana, 12.05.1988. Zanima me ljubav. Moj A-bon kod je: xxxx xxxx xxxx xxxx"></textarea>
+            <textarea id="clientQuestion" placeholder="Npr. Ivana, 12.05.1988. Zanima me ljubav. Moj A-bon kod je: xxxx xxxx xxxx xxxx"></xxxx></textarea>
             <button class="chat-send-btn" onclick="sendToWhatsApp()">Pošalji i započni chat</button>
         </div>
     </div>
@@ -270,6 +294,3 @@
             window.open("https://wa.me" + mojBroj + "?text=" + kodiraniTekst, "_blank");
         }
     </script>
-
-</body>
-</html>
