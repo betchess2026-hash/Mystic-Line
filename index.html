@@ -156,29 +156,11 @@
             color: #b388ff;
             font-size: 0.9em;
         }
-        .chat-body textarea {
-            width: 100%;
-            height: 70px;
-            background-color: #160d29;
-            border: 1px solid #3c1e6d;
-            border-radius: 8px;
-            color: white;
-            padding: 10px;
-            resize: none;
-            box-sizing: border-box;
-            font-family: inherit;
-        }
-        .chat-body textarea:focus {
-            outline: none;
-            border-color: #b388ff;
-        }
         .chat-send-btn {
             display: block;
-            width: 100%;
             background-color: #25d366;
             color: white;
-            border: none;
-            padding: 12px;
+            padding: 15px;
             border-radius: 8px;
             font-weight: bold;
             cursor: pointer;
@@ -256,21 +238,20 @@
         <div class="payment-methods">
             <h3>Kako platiti? Jednostavno i anonimno!</h3>
             <p>1. Kupite <span class="abon-logo">A-bon</span> u iznosu od željenog paketa na bilo kojem kiosku (Tisak, iNovine) ili benzinskoj postaji.</p>
-            <p>2. Unesite vaše podatke i pitanje u chat prozorčić dolje desno.</p>
-            <p>3. Pošaljite <span class="highlight">16-znamenkasti kod s bona</span> u poruci kako bismo aktivirali vaš paket poruka.</p>
-            <p style="font-size: 0.85em; color: #8c76b2; margin-top: 15px;">*Podržavamo i uplate putem standardnog Aircash novčanika te KEKS Pay-a.</p>
+            <p>2. Kliknite na gumb ispod kako biste se povezali s nama na WhatsApp-u.</p>
+            <p>3. Pošaljite nam svoje podatke (ime, datum rođenja, pitanje) i <span class="highlight">16-znamenkasti kod s bona</span> kako bismo aktivirali vaš paket.</p>
         </div>
     </div>
 
+    <!-- POVRATAK NA JEDNOSTAVNIJI I SIGURNIJI DIZAJN ZA UKLANJANJE BILO KAKVIH BLOKADA -->
     <div class="chat-widget">
         <div class="chat-header">
             <span class="status-dot"></span>
-            <span>Mystic Line - Aktivacija Chata</span>
+            <span>Mystic Line - Astro Chat</span>
         </div>
         <div class="chat-body">
-            <p>Napišite svoje ime, datum rođenja, pitanje ili kod kupljenog A-bona.</p>
-            <textarea id="clientQuestion" placeholder="Npr. Ivana, 12.05.1988. Zanima me ljubav. Moj A-bon kod je: xxxx xxxx xxxx xxxx"></textarea>
-            <button class="chat-send-btn" onclick="sendToWhatsApp()">Pošalji i započni chat</button>
+            <p>Klikom na gumb ispod otvara se naš službeni WhatsApp chat gdje odmah možete poslati svoje pitanje i A-bon kod.</p>
+            <a href="https://whatsapp.com" target="_blank" class="chat-send-btn">Započni Chat na WhatsApp-u</a>
         </div>
     </div>
 
@@ -278,17 +259,5 @@
         <p>&copy; 2026 Mystic Line. Sva prava pridržana.</p>
     </footer>
 
-    <script>
-        function sendToWhatsApp() {
-            var mojBroj = "385917861346";
-            var tekstPoruke = document.getElementById("clientQuestion").value;
-           
-            if(tekstPoruke.trim() === "") {
-                alert("Molimo vas unesite vaše pitanje ili A-bon kod prije slanja.");
-                return;
-            }
-           
-            var kodiraniTekst = encodeURIComponent("Pozdrav Mystic Line! Šaljem podatke i pitanje:\n\n" + tekstPoruke);
-           
-            // POPRAVLJENO I UNIVERZALNO: Korištenje punog api.whatsapp linka koji zaobilazi blokade zaključanih aplikacija
-            var konacniLink = "https://whatsapp.com" + mojBroj + "&text=" + kodiraniTekst;
+</body>
+</html>
