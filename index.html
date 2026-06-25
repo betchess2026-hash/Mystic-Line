@@ -289,6 +289,8 @@
             }
            
             var kodiraniTekst = encodeURIComponent("Pozdrav Mystic Line! Šaljem podatke i pitanje:\n\n" + tekstPoruke);
+           
+            // POPRAVLJENO: Dodana kosa crta (/) iza wa.me kako bi link ispravno radio na svim uređajima
             window.open("https://wa.me" + mojBroj + "?text=" + kodiraniTekst, "_blank");
         }
     </script>
